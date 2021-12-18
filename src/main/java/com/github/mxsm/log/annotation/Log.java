@@ -26,25 +26,6 @@ public @interface Log {
     String template() default "";
 
     /**
-     * request ip
-     * @return
-     */
-    String ip() default "";
-
-    /**
-     * operator id
-     * @return
-     */
-    String userId() default "";
-
-    /**
-     * user name
-     * @return
-     */
-    String userName() default "";
-
-
-    /**
      * operate type
      * @return
      */

@@ -19,8 +19,6 @@ public class LogCachedExpressionEvaluator extends CachedExpressionEvaluator {
 
     private Map<ExpressionKey, Expression> expressionCache = new ConcurrentHashMap<>();
 
-    private final Map<AnnotatedElementKey, EvaluationContext> targetMethodCache = new ConcurrentHashMap<>(64);
-
     private ParserContext parserContext;
 
     /**
@@ -59,4 +57,5 @@ public class LogCachedExpressionEvaluator extends CachedExpressionEvaluator {
         }
         return getParser().parseExpression(expression,this.parserContext);
     }
+
 }
