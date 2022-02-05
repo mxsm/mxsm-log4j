@@ -1,6 +1,6 @@
 package com.github.mxsm.log.aop;
 
-import com.github.mxsm.log.annotation.Log;
+import com.github.mxsm.log.annotation.MxsmLog;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -166,19 +166,19 @@ public class LogAdvice implements MethodInterceptor, BeanFactoryAware {
         @Override
         public void run() {
 
-            Log logAnnotation = method.getAnnotation(Log.class);
+            MxsmLog logAnnotation = method.getAnnotation(MxsmLog.class);
             AnnotatedElementKey elementKey = new AnnotatedElementKey(method, target.getClass());
             StandardEvaluationContext sec = secCache.get(elementKey);
             if (sec == null) {
                 sec = new StandardEvaluationContext();
                 sec.setBeanResolver(new BeanFactoryResolver(beanFactory));
-                String[] parameterNames = parameterNameDiscoverer.getParameterNames(method);
-                if (null != parameterNames && parameterNames.length > 0) {
-                    for (int index = 0; index < parameterNames.length; ++index) {
-                        sec.setVariable(parameterNames[index], args[index]);
-                    }
-                }
                 secCache.put(elementKey, sec);
+            }
+            String[] parameterNames = parameterNameDiscoverer.getParameterNames(method);
+            if (null != parameterNames && parameterNames.length > 0) {
+                for (int index = 0; index < parameterNames.length; ++index) {
+                    sec.setVariable(parameterNames[index], args[index]);
+                }
             }
             String value = logCachedExpressionEvaluator.parseExpression(logAnnotation.template(), elementKey, sec);
             logger.info(value);

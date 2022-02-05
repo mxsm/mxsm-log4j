@@ -1,6 +1,5 @@
 package com.github.mxsm.log.test.nolog;
 
-import com.github.mxsm.log.EnableLog;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,6 +1,6 @@
 package com.github.mxsm.log.test.asynctrue;
 
-import com.github.mxsm.log.annotation.Log;
+import com.github.mxsm.log.annotation.MxsmLog;
 import com.github.mxsm.log.test.User;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImplTrue {
 
-    @Log(template = "新增用户-名称为:${#user.name}  用户地址：${#user.address}, 年龄:${#user.age}, 用户的信息：${@userServiceImplTrue.getUserInfo(#user)}")
+    @MxsmLog(template = "新增用户-名称为:${#user.name}  用户地址：${#user.address}, 年龄:${#user.age}, 用户的信息：${@userServiceImplTrue.getUserInfo(#user)}")
     public boolean addUser(User user){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < 1999; ++i){

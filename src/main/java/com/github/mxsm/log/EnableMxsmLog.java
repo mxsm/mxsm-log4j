@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Import(LogImportSelector.class)
-public @interface EnableLog {
+public @interface EnableMxsmLog {
 
     boolean value() default true;
 

@@ -1,8 +1,9 @@
 package com.github.mxsm.log.registrar;
 
-import com.github.mxsm.log.EnableLog;
+import com.github.mxsm.log.EnableMxsmLog;
 import org.springframework.aop.config.AopConfigUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
@@ -28,7 +29,7 @@ public class LogImportBeanDefinitionRegistrar implements ImportBeanDefinitionReg
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(
-            importingClassMetadata.getAnnotationAttributes(EnableLog.class.getName(), false));
+            importingClassMetadata.getAnnotationAttributes(EnableMxsmLog.class.getName(), false));
         boolean proxyTargetClass = attributes.getBoolean("proxyTargetClass");
         AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry);
         if (proxyTargetClass) {

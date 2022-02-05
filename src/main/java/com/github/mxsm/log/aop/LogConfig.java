@@ -1,6 +1,6 @@
 package com.github.mxsm.log.aop;
 
-import com.github.mxsm.log.EnableLog;
+import com.github.mxsm.log.EnableMxsmLog;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,7 +49,7 @@ public class LogConfig implements ImportAware {
     @Override
     public void setImportMetadata(AnnotationMetadata importMetadata) {
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(
-            importMetadata.getAnnotationAttributes(EnableLog.class.getName(), false));
+            importMetadata.getAnnotationAttributes(EnableMxsmLog.class.getName(), false));
         this.async = attributes.getBoolean("async");
         this.loggerName = attributes.getString("loggerName");
     }

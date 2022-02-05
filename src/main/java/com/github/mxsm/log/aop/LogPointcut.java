@@ -1,6 +1,6 @@
 package com.github.mxsm.log.aop;
 
-import com.github.mxsm.log.annotation.Log;
+import com.github.mxsm.log.annotation.MxsmLog;
 import java.lang.reflect.Method;
 import org.springframework.aop.support.StaticMethodMatcherPointcut;
 import org.springframework.core.annotation.AnnotatedElementUtils;
@@ -14,6 +14,6 @@ public class LogPointcut extends StaticMethodMatcherPointcut{
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        return AnnotatedElementUtils.hasAnnotation(method, Log.class);
+        return AnnotatedElementUtils.hasAnnotation(method, MxsmLog.class);
     }
 }

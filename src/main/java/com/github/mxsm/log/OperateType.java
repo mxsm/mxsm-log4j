@@ -7,6 +7,7 @@ package com.github.mxsm.log;
  */
 public enum OperateType {
 
+    UNKNOWN,
     ADD,
     DELETE,
     UPDATE,

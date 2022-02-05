@@ -1,6 +1,6 @@
 package com.github.mxsm.log.test.asyncfalse;
 
-import com.github.mxsm.log.EnableLog;
+import com.github.mxsm.log.EnableMxsmLog;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("com.github.mxsm.log.test.asyncfalse")
-@EnableLog
+@EnableMxsmLog
 public class AsyncfalseConfig {
 
 }

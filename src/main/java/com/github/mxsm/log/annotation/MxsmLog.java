@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface Log {
+public @interface MxsmLog {
 
     /**
      * log template
@@ -26,14 +26,8 @@ public @interface Log {
     String template() default "";
 
     /**
-     * operate type
+     *
      * @return
      */
-    OperateType operate() default OperateType.SEARCH;
-
-    /**
-     * current timestamp
-     * @return
-     */
-    long currentTime() default 0L;
+    OperateType operateType() default OperateType.UNKNOWN;
 }
